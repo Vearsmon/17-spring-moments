@@ -35,9 +35,7 @@ public class BackToHouse : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
-            
             SceneManager.LoadScene("SampleScene");
-            
         }
     }
 }

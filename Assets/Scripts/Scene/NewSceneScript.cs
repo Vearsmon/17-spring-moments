@@ -37,9 +37,7 @@ public class NewSceneScript : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
-            
-                SceneManager.LoadScene("Balcony");
-            
+            SceneManager.LoadScene("Balcony");
         }
     }
 
