@@ -1,5 +1,4 @@
 ﻿using Items.PickDetector;
-using UnityEngine;
 
 namespace Items
 {

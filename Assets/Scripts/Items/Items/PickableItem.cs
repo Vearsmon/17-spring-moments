@@ -1,17 +1,14 @@
-﻿using System;
-using Items.PickDetector;
+﻿using Items.PickDetector;
 using Items.Picker;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Items
 {
-    public class PickableItem : MonoBehaviour, IItem, IPickable
+    public class PickableItem : MonoBehaviour, IPickable
     {
-        public string Name => name;
+        [SerializeField] private Item item;
+        
         public IPickDetector PickDetector { get; private set; }
-
-        [SerializeField] private new string name;
 
         private void Start()
         {
@@ -20,6 +17,6 @@ namespace Items
             PickDetector.Picked += Picked;
         }
 
-        protected virtual void Picked(IPicker picker) => picker.Pick(this);
+        private void Picked(IPicker picker) => picker.Pick(this);
     }
 }
