@@ -12,12 +12,6 @@ public class Player : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void FixedUpdate()
     {
         Move();
