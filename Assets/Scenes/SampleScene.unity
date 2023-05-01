@@ -323,6 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf912d5de700e3f44a1806771da133d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pos: {fileID: 11400000, guid: f9be035c522fd5f4da1155a466c54a34, type: 2}
 --- !u!50 &899481189
 Rigidbody2D:
   serializedVersion: 4
@@ -404,7 +405,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 899481187}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.04, y: 0.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -494,6 +495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ef52d92c934da846a03966fc1a5d583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  floor1AlphaChangeable: {fileID: 11400000, guid: f9be035c522fd5f4da1155a466c54a34, type: 2}
   floor1: {fileID: 752934391}
   floor2: {fileID: 1353141167}
 --- !u!212 &938291164
@@ -690,7 +692,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1777765316}
   - component: {fileID: 1777765315}
-  - component: {fileID: 1777765314}
+  - component: {fileID: 1777765317}
   m_Layer: 0
   m_Name: New Scene Trigger
   m_TagString: Untagged
@@ -698,19 +700,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1777765314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1777765313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56c4b49f0ea683a4087bbd31bda73b02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  floor1: {fileID: 0}
 --- !u!61 &1777765315
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -752,6 +741,22 @@ Transform:
   m_Father: {fileID: 1353141168}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1777765317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777765313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d364032c658517146b594ab06f809e93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Balcony
+  position: {x: 0, y: 1.5, z: 0}
+  playerStorage: {fileID: 11400000, guid: f9be035c522fd5f4da1155a466c54a34, type: 2}
+  floorAlpha: 1
 --- !u!1 &1866005721
 GameObject:
   m_ObjectHideFlags: 0
