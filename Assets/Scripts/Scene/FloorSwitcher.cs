@@ -47,14 +47,14 @@ public class FloorSwitcher : MonoBehaviour
 
     private void Update()
     {
-        foreach (var sprite in floor1Sprites)
+        foreach (var sprite in floor1.GetComponentsInChildren<SpriteRenderer>())
         {
             var color = sprite.color;
             color.a = floor1Alpha;
             sprite.color = color;
         }
         
-        foreach (var sprite in floor2Sprites)
+        foreach (var sprite in floor2.GetComponentsInChildren<SpriteRenderer>())
         {
             var color = sprite.color;
             color.a = floor2Alpha;
