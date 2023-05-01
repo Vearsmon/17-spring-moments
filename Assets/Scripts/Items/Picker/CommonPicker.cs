@@ -4,16 +4,21 @@ namespace Items.Picker
 {
     public class CommonPicker : MonoBehaviour, IPicker
     {
-        private Player player;
+        public GameObject target { get; private set; }
+        public Inventory TargetInventory { get; private set; }
         
-        public CommonPicker(Player player)
+        private void Start()
         {
-            this.player = player;
+            target = gameObject;
+            TargetInventory = gameObject.GetComponent<Inventory>();
         }
-        
+
         public void Pick(PickableItem item)
         {
-            Destroy(item.gameObject);
+            if (TargetInventory != null && TargetInventory.TryAddItem(item.ItemContained))
+                Destroy(item.gameObject);
+            else
+                Debug.Log("Full Inventory");
         }
     }
 }

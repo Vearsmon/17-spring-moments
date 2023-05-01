@@ -6,6 +6,7 @@ namespace Items
 {
     public class PickableItem : MonoBehaviour, IPickable
     {
+        public Item ItemContained => item;
         [SerializeField] private Item item;
         
         public IPickDetector PickDetector { get; private set; }
