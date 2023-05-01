@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class FloorSwitcher : MonoBehaviour
 {
+    public VectorValue floor1AlphaChangeable;
+    
     [SerializeField]
     private GameObject floor1;
 
@@ -19,17 +21,28 @@ public class FloorSwitcher : MonoBehaviour
     private SpriteRenderer[] floor2Sprites;
 
     private float floor2Alpha;
+
+    private Vector2 exitPosition = new (7.5f, 3.3f);
     
     private void Start()
     {
-        floor1.SetActive(true);
-        floor2.SetActive(false);
+        floor1Alpha = floor1AlphaChangeable.floorAlpha;
+        
+        if (floor1Alpha > 0.5)
+        {
+            floor1.SetActive(true);
+            floor2.SetActive(false);
+        }
+        else
+        {
+            floor1.SetActive(false);
+            floor2.SetActive(true);
+        }
 
         floor1Sprites = floor1.GetComponentsInChildren<SpriteRenderer>();
         floor2Sprites = floor2.GetComponentsInChildren<SpriteRenderer>();
-
-        floor1Alpha = 1;
-        floor2Alpha = 0;
+        
+        floor2Alpha = 1 - floor1Alpha;
     }
 
     private void Update()
@@ -53,6 +66,12 @@ public class FloorSwitcher : MonoBehaviour
     {
         floor1.SetActive(true);
         floor2.SetActive(true);
+    }
+
+    private void TurnOn2Floor(Collider2D col)
+    {
+        floor2.SetActive(true);
+        floor1.SetActive(false);
     }
 
     private void OnTriggerStay2D(Collider2D col)
