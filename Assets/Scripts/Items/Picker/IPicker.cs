@@ -1,4 +1,6 @@
-﻿using JetBrains.Annotations;
+﻿using System;
+using JetBrains.Annotations;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Items.Picker
@@ -7,7 +9,9 @@ namespace Items.Picker
     {
         public GameObject target { get; }
         [CanBeNull] public Inventory TargetInventory { get; }
-        
+
+        public event Action OnPick;
+
         public void Pick(PickableItem item);
     }
 }

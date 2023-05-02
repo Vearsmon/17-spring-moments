@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Items.Picker
 {
@@ -7,6 +8,8 @@ namespace Items.Picker
         public GameObject target { get; private set; }
         public Inventory TargetInventory { get; private set; }
         
+        public event Action OnPick;
+
         private void Start()
         {
             target = gameObject;
@@ -16,7 +19,10 @@ namespace Items.Picker
         public void Pick(PickableItem item)
         {
             if (TargetInventory != null && TargetInventory.TryAddItem(item.ItemContained))
+            {
+                OnPick?.Invoke();
                 Destroy(item.gameObject);
+            }
             else
                 Debug.Log("Full Inventory");
         }
