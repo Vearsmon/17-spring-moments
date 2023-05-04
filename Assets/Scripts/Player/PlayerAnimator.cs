@@ -27,7 +27,6 @@ public class PlayerAnimator : MonoBehaviour
         picker.OnPick += StartPickAnimation;
 
         previousDirection = Direction.Down;
-
     }
 
     private void FixedUpdate()
@@ -80,7 +79,7 @@ public class PlayerAnimator : MonoBehaviour
     private void StartPickAnimation()
     {
         Debug.Log("start pick");
-        animator.SetBool(Pick, true);
         pickStarted = DateTime.Now;
+        animator.SetBool(Pick, true);
     }
 }
