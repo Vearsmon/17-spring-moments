@@ -17,8 +17,8 @@ namespace Scene
                 return;
             playerStorage.initialValue = position;
             playerStorage.floorAlpha = floorAlpha;
+            DontDestroyOnLoad(col.gameObject);
             SceneManager.LoadScene(sceneName);
-            SceneManager.MoveGameObjectToScene(col.gameObject, SceneManager.GetSceneByName(sceneName));
         }
     }
 }
