@@ -13,7 +13,7 @@ namespace Items
 
         private void Start()
         {
-            PickDetector = gameObject.GetComponent<CommonPickDetector>() 
+            PickDetector = gameObject.GetComponent<IPickDetector>() 
                            ?? gameObject.AddComponent<CommonPickDetector>();
             PickDetector.Picked += Picked;
         }
