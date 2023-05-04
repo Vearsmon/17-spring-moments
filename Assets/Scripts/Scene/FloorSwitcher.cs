@@ -1,10 +1,9 @@
 using System;
+using Model;
 using UnityEngine;
 
 public class FloorSwitcher : MonoBehaviour
 {
-    public VectorValue floor1AlphaChangeable;
-    
     [SerializeField]
     private GameObject floor1;
 
@@ -19,27 +18,19 @@ public class FloorSwitcher : MonoBehaviour
 
     private float floor2Alpha;
 
-    private Vector2 exitPosition = new (7.5f, 3.3f);
     
     private void Start()
     {
-        floor1Alpha = floor1AlphaChangeable.floorAlpha;
-        
-        if (floor1Alpha > 0.5)
-        {
-            floor1.SetActive(true);
-            floor2.SetActive(false);
-        }
-        else
-        {
-            floor1.SetActive(false);
-            floor2.SetActive(true);
-        }
-
         floor1Sprites = floor1.GetComponentsInChildren<SpriteRenderer>();
         floor2Sprites = floor2.GetComponentsInChildren<SpriteRenderer>();
-        
-        floor2Alpha = 1 - floor1Alpha;
+
+        if (Core.HouseState.CurrentFloor == 1)
+        {
+            floor1Alpha = 1;
+            floor2Alpha = 0;
+        }
+        else
+            TurnOn2Floor();
     }
 
     private void Update()
@@ -65,8 +56,10 @@ public class FloorSwitcher : MonoBehaviour
         floor2.SetActive(true);
     }
 
-    private void TurnOn2Floor(Collider2D col)
+    private void TurnOn2Floor()
     {
+        floor1Alpha = 0;
+        floor2Alpha = 1;
         floor2.SetActive(true);
         floor1.SetActive(false);
     }
@@ -90,11 +83,13 @@ public class FloorSwitcher : MonoBehaviour
         {
             floor1.SetActive(true);
             floor2.SetActive(false);
+            Core.HouseState.CurrentFloor = 1;
         }
         else
         {
             floor1.SetActive(false);
             floor2.SetActive(true);
+            Core.HouseState.CurrentFloor = 2;
         }
     }
 }

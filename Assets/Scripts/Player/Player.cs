@@ -5,11 +5,9 @@ public class Player : MonoBehaviour
     private const float speed = 5;
     
     private new Rigidbody2D rigidbody;
-    public VectorValue pos;
     
     void Start()
     {
-        transform.position = pos.initialValue;
         rigidbody = GetComponent<Rigidbody2D>();
     }
 

@@ -1,30 +1,34 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Model;
 using UnityEngine.Events;
 
 namespace Items
 {
     public class Inventory : MonoBehaviour
     {
-        [SerializeField] private List<Item> items = new();
+        [SerializeField] public List<Item> Items { get; set; }
         [SerializeField] private readonly int size = 3;
         
         [SerializeField] public UnityEvent OnInventoryChanged;
-        
-        public IEnumerable<Item> Items => items;
-        public int Count => items.Count;
-        
+        public int Count => Items.Count;
+
+        private void Start()
+        {
+            Items = Core.PlayerState.items;
+        }
+
         public bool TryAddItem(Item item)
         {
-            if (items.Count >= size)
+            if (Items.Count >= size)
                 return false;
             
-            items.Add(item);
+            Items.Add(item);
             OnInventoryChanged?.Invoke();
             return true;
         }
 
-        public Item this[int index] => index < items.Count ? items[index] : null;
+        public Item this[int index] => index < Items.Count ? Items[index] : null;
     }
 }
