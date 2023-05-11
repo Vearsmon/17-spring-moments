@@ -1,15 +1,13 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Items;
+using Items.PickDetector;
 using Model;
 using UnityEngine;
 
 public class Brick1 : MonoBehaviour
 {
-    void Start()
+    private void Start()
     {
-        gameObject.GetComponent<PickableItem>().PickDetector.Picked += _ => Core.HouseState.Brick1 = false;
+        gameObject.GetComponent<IPickDetector>().Picked += _ => Core.HouseState.Brick1 = false;
         if (!Core.HouseState.Brick1)
             Destroy(gameObject);
     }
