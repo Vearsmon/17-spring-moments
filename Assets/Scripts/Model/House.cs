@@ -15,24 +15,23 @@ namespace Model
 
         public class Puzzle
         {
-            public bool Solved { get; private set; }
+            public bool Solved => CurrentState == WiningState;
+
+            public bool InStartState => CurrentState == 0;
 
             public int CurrentState { get; private set; }
 
-            public const int WiningState = 6;
+            private const int WiningState = 6;
 
-            public void ChangeState(int step)
+            public void ChangeState(int nextState)
             {
-                if (CurrentState == WiningState)
+                if (Solved)
                     return;
 
-                if (CurrentState == step - 1)
+                if (CurrentState == nextState - 1)
                     CurrentState++;
                 else
                     CurrentState = 0;
-
-                if (CurrentState == WiningState)
-                    Solved = true;
             }
         }
     }

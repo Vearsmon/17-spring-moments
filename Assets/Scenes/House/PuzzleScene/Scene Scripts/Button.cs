@@ -1,19 +1,36 @@
+using System;
 using UnityEngine;
 
-namespace Scenes.House.PazzleScene.Scene_Scripts
+namespace Scenes.House.PuzzleScene.Scene_Scripts
 {
     public class Button : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
+        public bool Interactable { get; set; } = true;
         
+        private bool isPressed;
+
+        private SpriteRenderer spriteRenderer;
+        private static readonly Color OffsetColor = new Color(0.2f, 0.2f, 0.2f, 0f);
+        private Color startColor;
+
+        private void Start()
+        {
+            spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+            startColor = spriteRenderer.color;
         }
 
-        // Update is called once per frame
-        void Update()
+        public void Press()
         {
-        
+            if (isPressed || !Interactable)
+                return;
+            isPressed = true;
+            spriteRenderer.color -= OffsetColor;
+        }
+
+        public void Release()
+        {
+            isPressed = false;
+            spriteRenderer.color = startColor;
         }
     }
 }

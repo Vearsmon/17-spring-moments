@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8871153431135226137}
   - component: {fileID: 8983957462169991513}
   - component: {fileID: 3339505705897422250}
+  - component: {fileID: 7444756460248354115}
   m_Layer: 0
   m_Name: Button (1)
   m_TagString: Untagged
@@ -141,18 +142,31 @@ MonoBehaviour:
   Clicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 18171b369498f974c9a47ee7786ea64d, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 7444756460248354115}
+        m_TargetAssemblyTypeName: Scenes.House.PuzzleScene.Scene_Scripts.Button,
+          Assembly-CSharp
+        m_MethodName: Press
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7444756460248354115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449190625860231466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b23fe122b8c5c04088fcf168a4f998a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1590756697049821057
 GameObject:
   m_ObjectHideFlags: 0
