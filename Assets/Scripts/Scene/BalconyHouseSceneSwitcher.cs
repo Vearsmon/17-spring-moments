@@ -18,7 +18,7 @@ namespace Scene
                 return;
             
             Core.PlayerState.items = playerGameObject.GetComponent<Inventory>().Items;
-            Core.HouseState.PlayerPosition = playerGameObject.transform.position;
+            Core.BalconyState.PlayerPosition = playerGameObject.transform.position;
             SceneManager.UnloadScene(SceneManager.GetActiveScene());
             SceneManager.LoadScene(sceneName);
         }

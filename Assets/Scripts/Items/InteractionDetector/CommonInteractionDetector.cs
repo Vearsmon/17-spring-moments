@@ -5,11 +5,11 @@ using UnityEngine;
 
 namespace Items.PickDetector
 {
-    public class CommonPickDetector : MonoBehaviour, IPickDetector
+    public class CommonInteractionDetector : MonoBehaviour, IInteractionDetector
     {
-        public event Action<IPicker> Picked;
+        private GameObject objectEntered;
+        public event Action<GameObject> Interacted;
 
-        [CanBeNull] private IPicker pickerEntered;
         private bool isEntered;
         
         public void Start()
@@ -24,14 +24,13 @@ namespace Items.PickDetector
                 return;
             
             if (Input.GetKey(KeyCode.E))
-                Picked?.Invoke(pickerEntered);
+                Interacted?.Invoke(objectEntered);
         }
 
         private void OnTriggerEnter2D(Collider2D col)
         {
-            pickerEntered = col.gameObject.GetComponent<IPicker>();
-            if (pickerEntered != null)
-                isEntered = true;
+            isEntered = true;
+            objectEntered = col.gameObject;
         }
 
         private void OnTriggerExit2D(Collider2D other)

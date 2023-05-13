@@ -10,7 +10,7 @@ public class Brick2 : MonoBehaviour
 {
     private void Start()
     {
-        gameObject.GetComponent<IPickDetector>().Picked += _ => Core.HouseState.Brick2 = false;
+        gameObject.GetComponent<IInteractionDetector>().Interacted += _ => Core.HouseState.Brick2 = false;
         if (!Core.HouseState.Brick2)
             Destroy(gameObject);
     }

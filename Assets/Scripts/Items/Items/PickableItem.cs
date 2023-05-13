@@ -4,20 +4,20 @@ using UnityEngine;
 
 namespace Items
 {
-    public class PickableItem : MonoBehaviour, IPickable
+    public class PickableItem : MonoBehaviour, IInteractive
     {
         public Item ItemContained => item;
         [SerializeField] private Item item;
         
-        public IPickDetector PickDetector { get; private set; }
+        public IInteractionDetector InteractionDetector { get; private set; }
 
         private void Start()
         {
-            PickDetector = gameObject.GetComponent<IPickDetector>() 
-                           ?? gameObject.AddComponent<CommonPickDetector>();
-            PickDetector.Picked += Picked;
+            InteractionDetector = gameObject.GetComponent<IInteractionDetector>() 
+                           ?? gameObject.AddComponent<CommonInteractionDetector>();
+            InteractionDetector.Interacted += Interacted;
         }
 
-        private void Picked(IPicker picker) => picker.Pick(this);
+        private void Interacted(GameObject obj) => obj.GetComponent<IPicker>()?.Pick(this);
     }
 }

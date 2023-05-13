@@ -5,29 +5,30 @@ using UnityEngine;
 
 namespace Items.PickDetector
 {
-    public class RadiusPickDetector : MonoBehaviour, IPickDetector
+    public class RadiusInteractionDetector : MonoBehaviour, IInteractionDetector
     {
         [SerializeField] private float radius = 1;
-        private IPicker pickerEntered;
+        private GameObject objectEntered;
         private bool isEntered;
         
-        public event Action<IPicker> Picked;
+        public event Action<GameObject> Interacted;
 
         private void FixedUpdate()
         {
             CheckPicker();
             
             if (Input.GetKey(KeyCode.E) && isEntered)
-                Picked?.Invoke(pickerEntered);
+                Interacted?.Invoke(objectEntered);
         }
 
         private void CheckPicker()
         {
             isEntered = false;
             foreach (var col in Physics2D.OverlapCircleAll(transform.position, radius))
-                if (col.gameObject.TryGetComponent<IPicker>(out pickerEntered))
+                if (col.gameObject.TryGetComponent<Player>(out var picker))
                 {
                     isEntered = true;
+                    objectEntered = col.gameObject;
                     break;
                 }
         }

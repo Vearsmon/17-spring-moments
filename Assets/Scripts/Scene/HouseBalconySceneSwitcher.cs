@@ -13,9 +13,11 @@ namespace Scene
         [SerializeField] private string sceneName;
         [CanBeNull] private GameObject playerGameObject;
 
+        private bool isEntered;
+
         private void FixedUpdate()
         {
-            if (!Input.GetKey(KeyCode.E) || playerGameObject == null)
+            if (!Input.GetKey(KeyCode.E) || !isEntered)
                 return;
             
             Core.PlayerState.items = playerGameObject.GetComponent<Inventory>().Items;
@@ -31,12 +33,13 @@ namespace Scene
             if (player == null) 
                 return;
 
+            isEntered = true;
             playerGameObject = player.gameObject;
         }
 
-        private void OnTriggerExit(Collider other)
+        private void OnTriggerExit2D(Collider2D col)
         {
-            playerGameObject = null;
+            isEntered = false;
         }
     }
 }
