@@ -583,10 +583,11 @@ GameObject:
   m_Component:
   - component: {fileID: 308223375}
   - component: {fileID: 308223376}
-  - component: {fileID: 308223377}
   - component: {fileID: 308223379}
-  - component: {fileID: 308223378}
   - component: {fileID: 308223380}
+  - component: {fileID: 308223378}
+  - component: {fileID: 308223377}
+  - component: {fileID: 308223381}
   m_Layer: 0
   m_Name: Table
   m_TagString: Untagged
@@ -676,10 +677,10 @@ MonoBehaviour:
   Interacted:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1752251960}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: Pause
-        m_Mode: 1
+      - m_Target: {fileID: 308223381}
+        m_TargetAssemblyTypeName: Scene.HousePuzzleSceneChanger, Assembly-CSharp
+        m_MethodName: Change
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -752,6 +753,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.266667, y: 1.2044415}
   m_EdgeRadius: 0
+--- !u!114 &308223381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308223374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70ee3f1a5f4fba743bb6342c1e4cb30a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &357120756
 GameObject:
   m_ObjectHideFlags: 0
@@ -1323,7 +1336,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &752934392
 Transform:
   m_ObjectHideFlags: 0
@@ -2355,7 +2368,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1353141168
 Transform:
   m_ObjectHideFlags: 0
