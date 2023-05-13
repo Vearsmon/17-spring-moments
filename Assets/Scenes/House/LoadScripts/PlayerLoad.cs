@@ -1,12 +1,15 @@
-using Items;
+using Items.Inventory;
 using Model;
 using UnityEngine;
 
-public class PlayerLoad : MonoBehaviour
+namespace Scenes.House.LoadScripts
 {
-    void Start()
+    public class PlayerLoad : MonoBehaviour
     {
-        gameObject.transform.position = Core.HouseState.PlayerPosition;
-        gameObject.GetComponent<Inventory>().Items = Core.PlayerState.items;
+        void Start()
+        {
+            gameObject.transform.position = Core.HouseState.PlayerPosition;
+            gameObject.GetComponent<Inventory>().Items = Core.PlayerState.items;
+        }
     }
 }

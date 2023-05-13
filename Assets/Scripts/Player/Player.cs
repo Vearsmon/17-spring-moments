@@ -1,26 +1,29 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
+namespace Player
 {
-    private const float speed = 5;
+    public class Player : MonoBehaviour
+    {
+        private const float speed = 5;
     
-    private new Rigidbody2D rigidbody;
+        private new Rigidbody2D rigidbody;
     
-    void Start()
-    {
-        rigidbody = GetComponent<Rigidbody2D>();
-    }
+        void Start()
+        {
+            rigidbody = GetComponent<Rigidbody2D>();
+        }
 
-    private void FixedUpdate()
-    {
-        Move();
-    }
+        private void FixedUpdate()
+        {
+            Move();
+        }
 
-    private void Move()
-    {
-        var xAxis = Input.GetAxisRaw("Horizontal");
-        var yAxis = Input.GetAxisRaw("Vertical");
+        private void Move()
+        {
+            var xAxis = Input.GetAxisRaw("Horizontal");
+            var yAxis = Input.GetAxisRaw("Vertical");
 
-        rigidbody.velocity = new Vector2(xAxis, yAxis).normalized * speed;
+            rigidbody.velocity = new Vector2(xAxis, yAxis).normalized * speed;
+        }
     }
 }

@@ -1,8 +1,8 @@
-﻿using Items.PickDetector;
+﻿using Items.InteractionDetector;
 using Items.Picker;
 using UnityEngine;
 
-namespace Items
+namespace Items.Items
 {
     public class PickableItem : MonoBehaviour, IInteractive
     {

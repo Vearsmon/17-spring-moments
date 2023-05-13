@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using UnityEngine;
-using System;
+using Items.Items;
 using Model;
+using UnityEngine;
 using UnityEngine.Events;
 
-namespace Items
+namespace Items.Inventory
 {
     public class Inventory : MonoBehaviour
     {

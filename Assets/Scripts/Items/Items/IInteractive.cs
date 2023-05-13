@@ -1,6 +1,6 @@
-﻿using Items.PickDetector;
+﻿using Items.InteractionDetector;
 
-namespace Items
+namespace Items.Items
 {
     public interface IInteractive
     {

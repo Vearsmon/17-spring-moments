@@ -1,5 +1,6 @@
 ﻿using System;
 using Items;
+using Items.Inventory;
 using JetBrains.Annotations;
 using Model;
 using UnityEngine;
@@ -26,7 +27,7 @@ namespace Scene
         [Obsolete("Obsolete")]
         private void OnTriggerEnter2D(Collider2D col)
         {
-            var player = col.GetComponent<Player>();
+            var player = col.GetComponent<Player.Player>();
             if (player == null) 
                 return;
 

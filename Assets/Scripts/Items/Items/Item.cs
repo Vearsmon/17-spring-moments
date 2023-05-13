@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Items
+namespace Items.Items
 {
     [CreateAssetMenu]
     public class Item : ScriptableObject

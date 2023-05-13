@@ -1,8 +1,7 @@
 ﻿using System;
-using Items.Picker;
 using UnityEngine;
 
-namespace Items.PickDetector
+namespace Items.InteractionDetector
 {
     public interface IInteractionDetector
     {

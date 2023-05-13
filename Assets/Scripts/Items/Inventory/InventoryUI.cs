@@ -1,22 +1,24 @@
 using System;
 using System.Collections.Generic;
-using Items;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryUI : MonoBehaviour
+namespace Items.Inventory
 {
-    [SerializeField] private List<Image> icons = new List<Image>();
-
-    public void UpdateUI(Inventory inventory)
+    public class InventoryUI : MonoBehaviour
     {
-        var size = Math.Min(icons.Count, inventory.Count);
-        for (var i = 0; i < size; i++)
+        [SerializeField] private List<Image> icons = new List<Image>();
+
+        public void UpdateUI(Inventory inventory)
         {
-            icons[i].color = Color.white;
-            icons[i].sprite = inventory[i].Icon;
+            var size = Math.Min(icons.Count, (int)inventory.Count);
+            for (var i = 0; i < size; i++)
+            {
+                icons[i].color = Color.white;
+                icons[i].sprite = inventory[i].Icon;
+            }
+            for (var i = size; i < icons.Count; i++)
+                icons[i].color = Color.clear;
         }
-        for (var i = size; i < icons.Count; i++)
-            icons[i].color = Color.clear;
     }
 }

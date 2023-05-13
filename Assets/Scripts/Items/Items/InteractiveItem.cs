@@ -1,9 +1,8 @@
-﻿using Items.PickDetector;
-using Unity.VisualScripting;
+﻿using Items.InteractionDetector;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Items
+namespace Items.Items
 {
     public class InteractiveItem : MonoBehaviour, IInteractive
     {

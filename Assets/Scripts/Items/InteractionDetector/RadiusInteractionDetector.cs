@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Linq;
-using Items.Picker;
 using UnityEngine;
 
-namespace Items.PickDetector
+namespace Items.InteractionDetector
 {
     public class RadiusInteractionDetector : MonoBehaviour, IInteractionDetector
     {
@@ -25,7 +23,7 @@ namespace Items.PickDetector
         {
             isEntered = false;
             foreach (var col in Physics2D.OverlapCircleAll(transform.position, radius))
-                if (col.gameObject.TryGetComponent<Player>(out var picker))
+                if (col.gameObject.TryGetComponent<Player.Player>(out var picker))
                 {
                     isEntered = true;
                     objectEntered = col.gameObject;

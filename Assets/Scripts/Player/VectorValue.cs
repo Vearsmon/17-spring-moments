@@ -1,10 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
-public class VectorValue : ScriptableObject
+namespace Player
 {
-    public Vector3 initialValue;
-    public float floorAlpha;
+    [CreateAssetMenu]
+    public class VectorValue : ScriptableObject
+    {
+        public Vector3 initialValue;
+        public float floorAlpha;
+    }
 }

@@ -1,9 +1,7 @@
 ﻿using System;
-using Items.Picker;
-using JetBrains.Annotations;
 using UnityEngine;
 
-namespace Items.PickDetector
+namespace Items.InteractionDetector
 {
     public class CommonInteractionDetector : MonoBehaviour, IInteractionDetector
     {
