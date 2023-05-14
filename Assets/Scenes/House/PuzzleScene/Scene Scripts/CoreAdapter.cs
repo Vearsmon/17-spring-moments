@@ -13,7 +13,7 @@ namespace Scenes.House.PuzzleScene.Scene_Scripts
 
         private Button[] buttons;
         private DateTime startReleasing = DateTime.MaxValue;
-        private static readonly TimeSpan duration = new (0, 0, 0, 0, 200);
+        private static readonly TimeSpan duration = new (0, 0, 0, 0, 300);
 
         private void Start()
         {

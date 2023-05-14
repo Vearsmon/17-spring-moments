@@ -10,13 +10,16 @@ namespace Scenes.House.PuzzleScene.Scene_Scripts
         private bool isPressed;
 
         private SpriteRenderer spriteRenderer;
-        private static readonly Color OffsetColor = new (0.2f, 0.2f, 0.2f, 0f);
-        private Color startColor;
-
+        private Color releasedColor;
+        private Color pressedColor;
+        
         private void Start()
         {
             spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-            startColor = spriteRenderer.color;
+            pressedColor = spriteRenderer.color;
+            releasedColor = Color.clear;
+
+            spriteRenderer.color = releasedColor;
         }
 
         public void Press()
@@ -24,13 +27,13 @@ namespace Scenes.House.PuzzleScene.Scene_Scripts
             if (isPressed || !Interactable)
                 return;
             isPressed = true;
-            spriteRenderer.color -= OffsetColor;
+            spriteRenderer.color = pressedColor;
         }
 
         public void Release()
         {
             isPressed = false;
-            spriteRenderer.color = startColor;
+            spriteRenderer.color = releasedColor;
         }
     }
 }
