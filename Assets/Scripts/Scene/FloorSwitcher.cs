@@ -27,10 +27,7 @@ namespace Scene
             floor2Sprites = floor2.GetComponentsInChildren<SpriteRenderer>();
 
             if (Core.HouseState.CurrentFloor == 1)
-            {
-                floor1Alpha = 1;
-                floor2Alpha = 0;
-            }
+                TurnOn1Floor();
             else
                 TurnOn2Floor();
         }
@@ -58,12 +55,20 @@ namespace Scene
             floor2.SetActive(true);
         }
 
+        private void TurnOn1Floor()
+        {
+            floor1Alpha = 1;
+            floor2Alpha = 0;
+            floor1.SetActive(true);
+            floor2.SetActive(false);
+        }
+        
         private void TurnOn2Floor()
         {
             floor1Alpha = 0;
             floor2Alpha = 1;
-            floor2.SetActive(true);
             floor1.SetActive(false);
+            floor2.SetActive(true);
         }
 
         private void OnTriggerStay2D(Collider2D col)
