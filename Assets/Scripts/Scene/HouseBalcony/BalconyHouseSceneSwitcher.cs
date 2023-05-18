@@ -34,7 +34,7 @@ namespace Scene
             playerGameObject = player.gameObject;
         }
 
-        private void OnTriggerExit(Collider other)
+        private void OnTriggerExit2D(Collider2D _)
         {
             playerGameObject = null;
         }

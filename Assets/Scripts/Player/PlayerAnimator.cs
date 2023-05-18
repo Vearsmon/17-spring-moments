@@ -79,7 +79,6 @@ namespace Player
 
         private void StartPickAnimation()
         {
-            Debug.Log("start pick");
             pickStarted = DateTime.Now;
             animator.SetBool(Pick, true);
         }

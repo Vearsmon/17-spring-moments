@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Items.Items;
 using Model;
 using UnityEngine;
@@ -27,6 +28,11 @@ namespace Items.Inventory
             Items.Add(item);
             OnInventoryChanged?.Invoke();
             return true;
+        }
+
+        public bool Contains(string itemName, int count = 1)
+        {
+            return Items.Count(item => item.name == itemName) == count;
         }
 
         public Item this[int index] => index < Items.Count ? Items[index] : null;

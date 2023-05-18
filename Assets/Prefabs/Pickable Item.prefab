@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 634159307578787097}
   - component: {fileID: 3418623855061009912}
   - component: {fileID: 7608901673554653911}
+  - component: {fileID: 2893025763768433963}
   m_Layer: 0
   m_Name: Pickable Item
   m_TagString: Untagged
@@ -138,3 +139,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4c4c6561eb4d62afc6f1a2cebeaacc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2893025763768433963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2449656082423669007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f76ac01e86b4f648af8898d6fa3249b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hint: {fileID: 0}

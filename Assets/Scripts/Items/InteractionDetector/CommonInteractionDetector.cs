@@ -27,6 +27,8 @@ namespace Items.InteractionDetector
 
         private void OnTriggerEnter2D(Collider2D col)
         {
+            if (col.GetComponent<Player.Player>() == null) 
+                return;
             isEntered = true;
             objectEntered = col.gameObject;
         }
