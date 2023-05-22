@@ -6,6 +6,8 @@ namespace Scenes.House.PuzzleScene.Scene_Scripts
     public class Button : MonoBehaviour
     {
         public bool Interactable { get; set; } = true;
+        public AudioClip pressSound;
+        public AudioSource audio;
         
         private bool isPressed;
 
@@ -24,6 +26,7 @@ namespace Scenes.House.PuzzleScene.Scene_Scripts
 
         public void Press()
         {
+            audio.PlayOneShot(pressSound);
             if (isPressed || !Interactable)
                 return;
             isPressed = true;
