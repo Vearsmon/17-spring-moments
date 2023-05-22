@@ -11,7 +11,18 @@ namespace Model
         public bool Brick1 { get; set; } = true;
         public bool Brick2 { get; set; } = true;
 
-        public Puzzle TablePuzzle = new Puzzle();
+        public bool Document { get; private set; } = true;
+
+        public readonly Puzzle TablePuzzle = new ();
+        
+        public bool TryTakeDocument()
+        {
+            if (!TablePuzzle.Solved || !Document)
+                return false;
+
+            Document = false;
+            return true;
+        }
 
         public class Puzzle
         {
