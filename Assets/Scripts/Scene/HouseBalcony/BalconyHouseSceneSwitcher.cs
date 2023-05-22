@@ -13,11 +13,15 @@ namespace Scene
         [SerializeField] private string sceneName;
         [CanBeNull] private GameObject playerGameObject;
 
+        public AudioSource audio;
+        public AudioClip doorSound;
+
         private void FixedUpdate()
         {
             if (!Input.GetKey(KeyCode.E) || playerGameObject == null)
                 return;
             
+            audio.PlayOneShot(doorSound);
             Core.PlayerState.items = playerGameObject.GetComponent<Inventory>().Items;
             Core.BalconyState.PlayerPosition = playerGameObject.transform.position;
             SceneManager.UnloadScene(SceneManager.GetActiveScene());
