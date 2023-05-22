@@ -3433,6 +3433,10 @@ PrefabInstance:
       value: 0.78431374
       objectReference: {fileID: 0}
     - target: {fileID: 2449656082423669004, guid: a185fef33bd2e3443878c31057241e25, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449656082423669004, guid: a185fef33bd2e3443878c31057241e25, type: 3}
       propertyPath: m_MaskInteraction
       value: 2
       objectReference: {fileID: 0}
@@ -3788,7 +3792,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.035350084, y: -0.40063334}
+  m_Offset: {x: -0.36557448, y: -0.40063334}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3799,7 +3803,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.9504323, y: 2.0812664}
+  m_Size: {x: 4.752281, y: 2.0812664}
   m_EdgeRadius: 0
 --- !u!61 &1270893718
 BoxCollider2D:
@@ -3814,7 +3818,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.011783004, y: 0}
+  m_Offset: {x: 0.013808012, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3825,7 +3829,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.536434, y: 1.28}
+  m_Size: {x: 3.986587, y: 1.28}
   m_EdgeRadius: 0
 --- !u!212 &1270893719
 SpriteRenderer:
@@ -5037,6 +5041,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.78431374
       objectReference: {fileID: 0}
+    - target: {fileID: 2449656082423669004, guid: a185fef33bd2e3443878c31057241e25, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2449656082423669005, guid: a185fef33bd2e3443878c31057241e25, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -6212,7 +6220,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7775982582614749760, guid: fdbd32daafb3e464daa6fbf4ecf49421, type: 3}
       propertyPath: m_SortingOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7775982582614749761, guid: fdbd32daafb3e464daa6fbf4ecf49421, type: 3}
       propertyPath: m_RootOrder
