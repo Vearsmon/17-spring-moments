@@ -11,7 +11,7 @@ namespace Model
         public bool Brick1 { get; set; } = true;
         public bool Brick2 { get; set; } = true;
 
-        public bool Document { get; private set; } = true;
+        public bool Document { get; private set; } = false;
 
         public readonly Puzzle TablePuzzle = new ();
         
