@@ -25,21 +25,19 @@ public class PapersViewer : MonoBehaviour
 
     public void TryTakeRightDocument()
     {
-        attemptsCount++;
-        if (!Core.HouseState.TablePuzzle.Solved)
-        {
-            if (attemptsCount == 1)
-            {
-                var storyteller = GameObject.FindGameObjectWithTag("Storyteller").GetComponent<Storyteller>();
-                storyteller.ShowMessage("ШТИРЛИЦ ПОПЫТАЛСЯ ВЗЯТЬ ДОКУМЕНТ, НО ДОКУМЕНТ НЕ ДАВАЛСЯ. " +
-                                        "ШТИРЛИЦ РЕШИЛ ПОДУМАТЬ ЕЩЁ");
-            }
-
-            return;
-        }
-            
         if (currentIndex != rightDocument)
             return;
+        
+        attemptsCount++;
+        if (!Core.HouseState.TryTakeDocument())
+        {
+            if (attemptsCount != 1) 
+                return;
+            var storyteller = GameObject.FindGameObjectWithTag("Storyteller").GetComponent<Storyteller>();
+            storyteller.ShowMessage("ШТИРЛИЦ ПОПЫТАЛСЯ ВЗЯТЬ ДОКУМЕНТ, НО ДОКУМЕНТ НЕ ДАВАЛСЯ. " +
+                                    "ШТИРЛИЦ РЕШИЛ ПОДУМАТЬ ЕЩЁ");
+            return;
+        }
 
         papers.RemoveAt(currentIndex);
         UpdatePaper();

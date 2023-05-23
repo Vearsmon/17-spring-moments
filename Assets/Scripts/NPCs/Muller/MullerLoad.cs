@@ -10,7 +10,7 @@ namespace NPCs.Muller
 
         private void Start()
         {
-            if (!Core.HouseState.Document)
+            if (Core.HouseState.Document)
                 Destroy(gameObject);
 
             if (Core.BalconyState.MullerAppeared)
