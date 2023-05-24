@@ -41,6 +41,7 @@ namespace Scenes.Balcony
             {
                 GameObject.FindGameObjectWithTag("Storyteller").GetComponent<Storyteller>()
                     .ShowMessage("\"Думаете, легко работать на две Ставки?\" — вздыхал Штирлиц.".ToUpper());
+                //TODO ну крч думаю сделать список анеков которые рандомно будут вылезать)
             }
         }
         
