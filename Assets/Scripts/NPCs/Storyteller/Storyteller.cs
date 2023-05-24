@@ -30,7 +30,7 @@ namespace NPCs.Storyteller
         {
             text ??= GetComponentInChildren<TextMeshProUGUI>();
             escapeManager = GameObject.FindGameObjectWithTag("EscapeManager")
-                .GetComponent<EscapeManager>();
+                ?.GetComponent<EscapeManager>();
         }
     }
 }

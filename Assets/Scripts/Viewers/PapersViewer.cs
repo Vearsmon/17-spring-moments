@@ -11,7 +11,7 @@ public class PapersViewer : MonoBehaviour
     [SerializeField] private int currentIndex;
     [SerializeField] private int rightDocument;
 
-    private int attemptsCount;
+    private static int attemptsCount;
     
     [SerializeField] private List<Sprite> papers;
 
@@ -25,9 +25,6 @@ public class PapersViewer : MonoBehaviour
 
     public void TryTakeRightDocument()
     {
-        if (currentIndex != rightDocument)
-            return;
-        
         attemptsCount++;
         if (!Core.HouseState.TryTakeDocument())
         {
@@ -38,6 +35,9 @@ public class PapersViewer : MonoBehaviour
                                     "ШТИРЛИЦ РЕШИЛ ПОДУМАТЬ ЕЩЁ");
             return;
         }
+        
+        if (currentIndex != rightDocument)
+            return;
 
         papers.RemoveAt(currentIndex);
         UpdatePaper();
@@ -54,7 +54,7 @@ public class PapersViewer : MonoBehaviour
 
     public void TrySwitchRight()
     {
-        if (currentIndex >= papers.Count)
+        if (currentIndex >= papers.Count - 1)
             return;
         
         currentIndex++;

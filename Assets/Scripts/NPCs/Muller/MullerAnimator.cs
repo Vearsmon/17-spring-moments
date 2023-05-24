@@ -15,9 +15,9 @@ namespace NPCs.Muller
             rigidbody = GetComponent<Rigidbody2D>();
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
-            animator.SetBool(Walk, Math.Abs(rigidbody.velocity.magnitude) >= 1e-3);
+            animator.SetBool(Walk, Math.Abs(rigidbody.velocity.magnitude) >= 1e-1);
         }
     }
 }
