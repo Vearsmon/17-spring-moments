@@ -25,12 +25,8 @@ public class LinearMover : MonoBehaviour
         var currentPosition = (Vector2)gameObject.transform.position;
         if ((toPos - currentPosition).magnitude < 1e-1)
         {
-            Destroy(this);
             rigidbody.velocity = Vector2.zero;
-            return;
+            Destroy(this);
         }
-
-        // gameObject.transform.position = currentPosition + direction * Time.deltaTime;
-
     }
 }

@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using Model;
+using NPCs.Storyteller;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +9,9 @@ public class PapersViewer : MonoBehaviour
 {
     [SerializeField] private Image currentPaper;
     [SerializeField] private int currentIndex;
+    [SerializeField] private int rightDocument;
+
+    private static int attemptsCount;
     
     [SerializeField] private List<Sprite> papers;
 
@@ -18,17 +23,41 @@ public class PapersViewer : MonoBehaviour
             currentPaper.sprite = papers[currentIndex];
     }
 
+    public void TryTakeRightDocument()
+    {
+        attemptsCount++;
+        if (!Core.HouseState.TryTakeDocument())
+        {
+            if (attemptsCount != 1) 
+                return;
+            var storyteller = GameObject.FindGameObjectWithTag("Storyteller").GetComponent<Storyteller>();
+            storyteller.ShowMessage("ШТИРЛИЦ ПОПЫТАЛСЯ ВЗЯТЬ ДОКУМЕНТ, НО ДОКУМЕНТ НЕ ДАВАЛСЯ. " +
+                                    "ШТИРЛИЦ РЕШИЛ ПОДУМАТЬ ЕЩЁ");
+            return;
+        }
+        
+        if (currentIndex != rightDocument)
+            return;
+
+        papers.RemoveAt(currentIndex);
+        UpdatePaper();
+    }
+    
     public void TrySwitchLeft()
     {
-        if (currentIndex > 0)
-            currentIndex--;
+        if (currentIndex <= 0)
+            return;
+        
+        currentIndex--;
         UpdatePaper();
     }
 
     public void TrySwitchRight()
     {
-        if (currentIndex < papers.Count - 1)
-            currentIndex++;
+        if (currentIndex >= papers.Count - 1)
+            return;
+        
+        currentIndex++;
         UpdatePaper();
     }
 

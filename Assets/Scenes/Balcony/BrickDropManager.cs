@@ -2,6 +2,7 @@ using System;
 using Items.InteractionDetector;
 using Items.Inventory;
 using Model;
+using NPCs.Storyteller;
 using UnityEngine;
 
 namespace Scenes.Balcony
@@ -35,6 +36,11 @@ namespace Scenes.Balcony
             {
                 inventory.Items.RemoveAll(item => item.Name == brick);
                 animationStarted = true;
+            }
+            else
+            {
+                GameObject.FindGameObjectWithTag("Storyteller").GetComponent<Storyteller>()
+                    .ShowMessage("\"Думаете, легко работать на две Ставки?\" — вздыхал Штирлиц.".ToUpper());
             }
         }
         
