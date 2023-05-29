@@ -401,11 +401,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPaper: {fileID: 0}
   currentIndex: 0
-  rightDocument: 0
   papers:
   - {fileID: 21300000, guid: 9ee446a29f5dc354ebb237ae39265cea, type: 3}
   - {fileID: 21300000, guid: 7e60c1c6b5078c04c999166fdf867cb9, type: 3}
   - {fileID: 21300000, guid: 35b067f4be2f93343add05060cc2ff38, type: 3}
+  papersID: 000000000100000002000000
+  rightDocumentTaken:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1619581190}
+        m_TargetAssemblyTypeName: NPCs.Storyteller.Storyteller, Assembly-CSharp
+        m_MethodName: ShowMessage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: "\u0428\u0422\u0418\u0420\u041B\u0418\u0426 \u041D\u0410\u0428\u0415\u041B
+            \u0414\u041E\u041A\u0423\u041C\u0415\u041D\u0422. \u0421 \u0423\u041B\u0418\u0426\u042B
+            \u041F\u041E\u0421\u041B\u042B\u0428\u0410\u041B\u0418\u0421\u042C \u0428\u0410\u0413\u0418
+            \u041C\u042E\u041B\u041B\u0415\u0420\u0410. \u0415\u0413\u041E \u041F\u041E\u0425\u041E\u0414\u041A\u0410
+            \u0412\u0421\u0415\u0413\u0414\u0410 \u0415\u0413\u041E \u0412\u042B\u0414\u0410\u041B\u0410.
+            \u0415\u0429\u0401 \u041D\u0418\u041A\u041E\u0413\u0414\u0410 \u0428\u0422\u0418\u0420\u041B\u0418\u0426
+            \u041D\u0415 \u0411\u042B\u041B \u0422\u0410\u041A \u0411\u041B\u0418\u0417\u041A\u041E
+            \u041A \u041F\u0420\u041E\u0412\u0410\u041B\u0423. \u041A\u0410\u041A
+            \u0416\u0415 \u0412\u042B\u041F\u0423\u0422\u0410\u0422\u042C\u0421\u042F
+            \u0418\u0417 \u042D\u0422\u041E\u0419 \u0421\u0418\u0422\u0423\u0410\u0426\u0418\u0418?"
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &93684182
 GameObject:
   m_ObjectHideFlags: 0
@@ -822,11 +846,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPaper: {fileID: 0}
   currentIndex: 0
-  rightDocument: -1
   papers:
   - {fileID: 21300000, guid: 9ee446a29f5dc354ebb237ae39265cea, type: 3}
   - {fileID: 21300000, guid: 7e60c1c6b5078c04c999166fdf867cb9, type: 3}
   - {fileID: 21300000, guid: 35b067f4be2f93343add05060cc2ff38, type: 3}
+  papersID: 030000000400000005000000
+  rightDocumentTaken:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!224 &153092331 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4012327764562381349, guid: 839769d3e4ced3b4a9133efe34bf0e59, type: 3}
@@ -4584,18 +4611,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1270893721}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1270893716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7159,6 +7174,14 @@ PrefabInstance:
     - target: {fileID: 3610604968183163576, guid: 4b0008392f4461d4a8e813105789adc0, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610604969036305961, guid: 4b0008392f4461d4a8e813105789adc0, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610604969036305963, guid: 4b0008392f4461d4a8e813105789adc0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3610604969323086732, guid: 4b0008392f4461d4a8e813105789adc0, type: 3}
       propertyPath: m_Pivot.x

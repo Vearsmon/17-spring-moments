@@ -201,7 +201,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &88401402
 RectTransform:
@@ -217,7 +217,7 @@ RectTransform:
   m_Children:
   - {fileID: 234146775}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1391,7 +1391,7 @@ Transform:
   m_Children:
   - {fileID: 538340785}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2001074963
 GameObject:
@@ -1626,11 +1626,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3610604969323086732, guid: 4b0008392f4461d4a8e813105789adc0, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -1096.12
+      value: -1098.83
       objectReference: {fileID: 0}
     - target: {fileID: 3610604969323086732, guid: 4b0008392f4461d4a8e813105789adc0, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -593.34
+      value: -564.67
       objectReference: {fileID: 0}
     - target: {fileID: 3610604969323086732, guid: 4b0008392f4461d4a8e813105789adc0, type: 3}
       propertyPath: m_LocalScale.x
@@ -1674,11 +1674,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3610604969323086732, guid: 4b0008392f4461d4a8e813105789adc0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -17.76001
+      value: -50.059998
       objectReference: {fileID: 0}
     - target: {fileID: 3610604969323086732, guid: 4b0008392f4461d4a8e813105789adc0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -224.40002
+      value: -196.66
       objectReference: {fileID: 0}
     - target: {fileID: 3610604969323086732, guid: 4b0008392f4461d4a8e813105789adc0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Model
 {
@@ -12,14 +14,15 @@ namespace Model
         public bool Brick2 { get; set; } = true;
 
         public bool Document { get; private set; } = true;
+        public readonly int RightDocumentID = 2;
 
         public readonly Puzzle TablePuzzle = new ();
-        
-        public bool TryTakeDocument()
-        {
-            if (!TablePuzzle.Solved || !Document)
-                return false;
 
+        public bool TryTakeDocument(int documentID)
+        {
+            if (documentID != RightDocumentID)
+                return false;
+            
             Document = false;
             return true;
         }
