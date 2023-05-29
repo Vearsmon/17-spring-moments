@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Model
 {
@@ -11,6 +12,8 @@ namespace Model
         
         private readonly Stack<(GameObject, Action)> toClose = new();
         private readonly HashSet<GameObject> objectsAdded = new();
+
+        [SerializeField] public UnityEvent onClose;
 
         private void Update()
         {
@@ -44,6 +47,7 @@ namespace Model
             action.Item2.Invoke();
             if (action.Item1 != null)
                 objectsAdded.Remove(action.Item1);
+            onClose?.Invoke();
             return true;
         }
 

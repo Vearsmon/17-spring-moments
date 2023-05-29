@@ -125,6 +125,7 @@ CanvasRenderer:
   m_CullTransparentMesh: 1
 --- !u!114 &3610604969036305961
 MonoBehaviour:
+  m_SerializedVersion: 1
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -145,8 +146,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u0421\u0422\u041E\u0420\u0418\u0422\u0415\u041B\u041B\u0415\u0420"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ecf98c9ea6ea64845af67f2f5ddeeaa3, type: 2}
-  m_sharedMaterial: {fileID: 9195274627244312511, guid: ecf98c9ea6ea64845af67f2f5ddeeaa3, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d7246643a1b481c44ac98caab6691abf, type: 2}
+  m_sharedMaterial: {fileID: 109733127179692641, guid: d7246643a1b481c44ac98caab6691abf, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -180,7 +181,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 4
+  m_characterSpacing: 12,5
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
