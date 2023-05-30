@@ -40,7 +40,6 @@ namespace Player
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) ||
                 Input.GetKey(KeyCode.D))
             {
-                print(timer);
                 timer++;
                 if (timer > 25 && Math.Abs(rigidbody.velocity.magnitude) >= 1e-3)
                 {
