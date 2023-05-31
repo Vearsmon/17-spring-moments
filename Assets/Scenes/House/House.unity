@@ -7468,11 +7468,23 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7775982582614749770, guid: fdbd32daafb3e464daa6fbf4ecf49421, type: 3}
+      propertyPath: stepsAudioClips.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775982582614749770, guid: fdbd32daafb3e464daa6fbf4ecf49421, type: 3}
       propertyPath: StepsAudioClips.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: fcf7cdcb1dccbf5429a4ea861fb4aca3, type: 3}
     - target: {fileID: 7775982582614749770, guid: fdbd32daafb3e464daa6fbf4ecf49421, type: 3}
       propertyPath: StepsAudioClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 143288c7a0195c3498951aa22fdc163f, type: 3}
+    - target: {fileID: 7775982582614749770, guid: fdbd32daafb3e464daa6fbf4ecf49421, type: 3}
+      propertyPath: stepsAudioClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: fcf7cdcb1dccbf5429a4ea861fb4aca3, type: 3}
+    - target: {fileID: 7775982582614749770, guid: fdbd32daafb3e464daa6fbf4ecf49421, type: 3}
+      propertyPath: stepsAudioClips.Array.data[1]
       value: 
       objectReference: {fileID: 8300000, guid: 143288c7a0195c3498951aa22fdc163f, type: 3}
     - target: {fileID: 7775982582614749774, guid: fdbd32daafb3e464daa6fbf4ecf49421, type: 3}

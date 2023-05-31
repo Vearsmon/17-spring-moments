@@ -10,10 +10,12 @@ namespace Player
 
     public class PlayerAnimator : MonoBehaviour
     {
+        [SerializeField] public AudioClip[] stepsAudioClips;
+        [SerializeField] public GameObject brick;
+        
         [SerializeField] private Animator animator;
         [SerializeField] private Rigidbody2D rigidbody;
-        [SerializeField] private IPicker picker;
-        [SerializeField] public AudioClip[] StepsAudioClips;
+        private IPicker picker;
     
         private static readonly int Direction1 = Animator.StringToHash("Direction");
         private static readonly int Speed = Animator.StringToHash("Speed");
@@ -100,7 +102,13 @@ namespace Player
 
         private void MakeStepSound()
         {
-            audio.PlayOneShot(StepsAudioClips[Random.Range(0, StepsAudioClips.Length)]);
+            audio.PlayOneShot(stepsAudioClips[Random.Range(0, stepsAudioClips.Length)]);
+        }
+
+        private void ThrowBrick()
+        {
+            Instantiate(brick, gameObject.transform.position, Quaternion.identity);
+            animator.Play("Change Direction");
         }
     }
 }

@@ -2,6 +2,7 @@ using System;
 using Items.InteractionDetector;
 using Items.Inventory;
 using Model;
+using NPCs.Muller;
 using NPCs.Storyteller;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ namespace Scenes.Balcony
 
         [SerializeField] private Animator mullerAnimator;
         [SerializeField] private Animator stierlitzAnimator;
+        [SerializeField] private GameObject mullerNeedPosition;
         private bool animationStarted;
 
         private string brick = "Brick";
@@ -35,7 +37,9 @@ namespace Scenes.Balcony
         {
             var inventory = obj.GetComponent<Inventory>();
             if (inventory.Contains(brick, 2) 
-                && Core.BalconyState.MullerAppeared)
+                && Core.BalconyState.MullerAppeared
+                && (mullerAnimator.gameObject.transform.position - 
+                    mullerNeedPosition.transform.position).magnitude < 1e-1)
             {
                 inventory.Items.RemoveAll(item => item.Name == brick);
                 PlayFirstAnimationStep();
@@ -50,7 +54,7 @@ namespace Scenes.Balcony
 
         private void PlayFirstAnimationStep()
         {
-            mullerAnimator.SetBool(Hurted, true);
+            stierlitzAnimator.Play("Throw");
             storyteller.ShowMessage("\"Вот-те раз\" — воскликнул Мюллер.".ToUpper());
             escapeManager.onClose.RemoveListener(PlayFirstAnimationStep);
             escapeManager.onClose.AddListener(PlaySecondAnimationStep);
@@ -58,7 +62,7 @@ namespace Scenes.Balcony
         
         private void PlaySecondAnimationStep()
         {
-            mullerAnimator.SetBool(Fell, true);
+            stierlitzAnimator.Play("Throw");
             storyteller.ShowMessage("\"Вот-те два\" — ответил Штирлиц.".ToUpper());
             escapeManager.onClose.RemoveListener(PlaySecondAnimationStep);
         }
