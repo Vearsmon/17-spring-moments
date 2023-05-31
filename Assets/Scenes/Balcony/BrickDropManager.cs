@@ -31,12 +31,6 @@ namespace Scenes.Balcony
             interactionDetector.Interacted += DropBricks;
         }
 
-        private void Update()
-        {
-            if (animationStarted)
-                Debug.Log("Dropping animation started");
-        }
-
         private void DropBricks(GameObject obj)
         {
             var inventory = obj.GetComponent<Inventory>();
