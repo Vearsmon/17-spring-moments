@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 namespace Items.Items
 {
-    public class InteractiveItem : MonoBehaviour, IInteractive
+    public class InteractableItem : MonoBehaviour, IInteractable
     {
         public IInteractionDetector InteractionDetector { get; private set; }
 

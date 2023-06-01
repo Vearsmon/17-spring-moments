@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Items.Items
 {
-    public class PickableItem : MonoBehaviour, IInteractive
+    public class PickableItem : MonoBehaviour, IInteractable
     {
         public Item ItemContained => item;
         [SerializeField] private Item item;

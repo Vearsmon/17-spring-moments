@@ -2,7 +2,7 @@
 
 namespace Items.Items
 {
-    public interface IInteractive
+    public interface IInteractable
     {
         public IInteractionDetector InteractionDetector { get; }
     }
