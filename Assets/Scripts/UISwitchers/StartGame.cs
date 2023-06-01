@@ -10,4 +10,9 @@ public class StartGame : MonoBehaviour
     {
         SceneTransition.SwitchToScene("House");
     }
+
+    public void GoToMenu()
+    {
+        SceneTransition.SwitchToScene("Menu");
+    }
 }
