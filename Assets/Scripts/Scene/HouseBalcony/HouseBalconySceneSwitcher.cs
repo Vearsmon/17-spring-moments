@@ -16,15 +16,14 @@ namespace Scene
 
         private bool isEntered;
 
-        private void FixedUpdate()
+        private void Update()
         {
-            if (!Input.GetKey(KeyCode.E) || !isEntered)
+            if (!Input.GetKeyDown(KeyCode.E) || !isEntered)
                 return;
             
             Core.PlayerState.items = playerGameObject.GetComponent<Inventory>().Items;
             Core.HouseState.PlayerPosition = playerGameObject.transform.position;
-            SceneManager.UnloadScene(SceneManager.GetActiveScene());
-            SceneManager.LoadScene(sceneName);
+            SceneTransition.SwitchToScene("Balcony");
         }
 
         [Obsolete("Obsolete")]

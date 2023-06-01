@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using Model;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour
 {
@@ -14,14 +11,11 @@ public class MainMenuScript : MonoBehaviour
     public void ContinueGame()
     {
         Core.TryLoad();
-        SceneTransition.SwitchToScene("House");
+        SceneTransition.SwitchToScene(Core.CurrentScene);
     }
 
     public void QuitGame()
     {
-        if (!Core.TrySave())
-            return;
-
         Debug.Log("Выход из игры завершен");
         Application.Quit();
     }

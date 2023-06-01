@@ -6,15 +6,22 @@ public class SceneTransition : MonoBehaviour
 {
     public Text LoadingPercentage;
     public Image LoadingProgressBar;
-    
-    public static SceneTransition instance;
+
+    private static SceneTransition instance;
     private static bool shouldPlayOpeningAnimation = false; 
     
     private Animator componentAnimator;
     private AsyncOperation loadingSceneOperation;
-
+    
+    private static GameObject introBackground;
+    
     public static void SwitchToScene(string sceneName)
     {
+        if (instance.loadingSceneOperation is { isDone: false })
+            return;
+        
+        introBackground.SetActive(true);
+        
         if (instance != null) instance.transform.SetAsLastSibling();
         instance.componentAnimator.SetTrigger("sceneClosing");
 
@@ -29,6 +36,7 @@ public class SceneTransition : MonoBehaviour
     
     private void Start()
     {
+        introBackground = GameObject.FindGameObjectWithTag("IntroBackground");
         instance = this;
         
         componentAnimator = GetComponent<Animator>();
@@ -42,11 +50,13 @@ public class SceneTransition : MonoBehaviour
             // Чтобы если следующий переход будет обычным SceneManager.LoadScene, не проигрывать анимацию opening:
             shouldPlayOpeningAnimation = false;
         }
+        else
+            introBackground?.SetActive(false);
     }
 
-    private void Update()
+    public void SetBackgroundInactive()
     {
-        
+        introBackground?.SetActive(false);
     }
 
     public void OnOpeningAnimationOver()

@@ -1,4 +1,4 @@
-using System;
+using System.Reflection;
 using Model;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -37,7 +37,15 @@ public class PauseMenu : MonoBehaviour
 
     public void SaveGame()
     {
-        Core.TrySave();
+        Core.CurrentScene = SceneManager.GetActiveScene().name;
+        
+        Debug.Log($"{Core.CurrentScene}State");
+        var value = typeof(Core).GetProperty($"{Core.CurrentScene}State")!.GetValue(null);
+        value!.GetType().GetProperty("PlayerPosition")!
+            .SetValue(value, GameObject.FindGameObjectWithTag("Player").transform.position);
+        
+        if (!Core.TrySave())
+            Debug.Log("Unable to save progress");
     }
 
     public void LoadSettings()

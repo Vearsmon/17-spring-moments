@@ -11,11 +11,11 @@ namespace Items.InteractionDetector
         
         public event Action<GameObject> Interacted;
 
-        private void FixedUpdate()
+        private void Update()
         {
             CheckPicker();
             
-            if (Input.GetKey(KeyCode.E) && isEntered)
+            if (Input.GetKeyDown(KeyCode.E) && isEntered)
                 Interacted?.Invoke(objectEntered);
         }
 

@@ -32,7 +32,7 @@ RectTransform:
   m_Children:
   - {fileID: 5321663715789670979}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 5321663715789670988}
   m_Layer: 5
   m_Name: IntroBackground
-  m_TagString: Untagged
+  m_TagString: IntroBackground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
