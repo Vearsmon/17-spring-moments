@@ -5,6 +5,7 @@ public class MainMenuScript : MonoBehaviour
 {
     public void StartGame()
     {
+        Core.Reset();
         SceneTransition.SwitchToScene("Intro");
     }
 

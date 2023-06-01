@@ -20,6 +20,14 @@ namespace Model
 
         public static PlayerState PlayerState { get; private set; }= new();
 
+        public static void Reset()
+        {
+            HouseState = new House();
+            BalconyState = new Balcony();
+
+            PlayerState = new PlayerState();
+        }
+        
         public static bool TrySave()
         {
             try
