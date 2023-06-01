@@ -8,6 +8,7 @@ TagManager:
   - Storyteller
   - PauseMenu
   - DamagingItem
+  - IntroBackground
   layers:
   - Default
   - TransparentFX

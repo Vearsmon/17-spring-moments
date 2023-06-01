@@ -9,10 +9,10 @@ namespace Scene.HousePuzzle
         public AudioSource audio;
         void Update()
         {
-            if (Input.GetKey(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
+                SceneTransition.SwitchToScene("House");
                 audio.PlayOneShot(exitTableSceneSound);
-                SceneManager.LoadScene("House");
             }
                 
         }

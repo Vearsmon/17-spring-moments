@@ -11,7 +11,7 @@ namespace Scene
         {
             Core.PlayerState.items = obj.GetComponent<Inventory>().Items;
             Core.HouseState.PlayerPosition = obj.transform.position;
-            SceneManager.LoadScene("PuzzleScene");
+            SceneTransition.SwitchToScene("PuzzleScene");
         }
     }
 }

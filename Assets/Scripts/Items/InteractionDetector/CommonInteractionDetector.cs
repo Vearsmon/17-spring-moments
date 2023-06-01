@@ -16,12 +16,12 @@ namespace Items.InteractionDetector
                 gameObject.AddComponent<BoxCollider2D>();
         }
 
-        public void FixedUpdate()
+        public void Update()
         { 
             if (!isEntered)
                 return;
             
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E))
                 Interacted?.Invoke(objectEntered);
         }
 

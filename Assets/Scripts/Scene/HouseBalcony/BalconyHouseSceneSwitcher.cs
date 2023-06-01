@@ -18,14 +18,13 @@ namespace Scene
 
         private void FixedUpdate()
         {
-            if (!Input.GetKey(KeyCode.E) || playerGameObject == null)
+            if (!Input.GetKeyDown(KeyCode.E) || playerGameObject == null)
                 return;
             
             audio.PlayOneShot(doorSound);
             Core.PlayerState.items = playerGameObject.GetComponent<Inventory>().Items;
             Core.BalconyState.PlayerPosition = playerGameObject.transform.position;
-            SceneManager.UnloadScene(SceneManager.GetActiveScene());
-            SceneManager.LoadScene(sceneName);
+            SceneTransition.SwitchToScene("House");
         }
 
         [Obsolete("Obsolete")]
