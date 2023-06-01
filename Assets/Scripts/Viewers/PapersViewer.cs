@@ -41,7 +41,7 @@ public class PapersViewer : MonoBehaviour
         {
             var storyteller = GameObject.FindGameObjectWithTag("Storyteller").GetComponent<Storyteller>();
             storyteller.ShowMessage("ШТИРЛИЦ ПОПЫТАЛСЯ ВЗЯТЬ ДОКУМЕНТ, НО ДОКУМЕНТ НЕ ДАВАЛСЯ. " +
-                                    "ШТИРЛИЦ РЕШИЛ ПОДУМАТЬ ЕЩЁ");
+                                    "ШТИРЛИЦ РЕШИЛ ПОДУМАТЬ ЕЩЕ");
             return;
         }
 

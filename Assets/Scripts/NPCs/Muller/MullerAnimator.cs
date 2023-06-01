@@ -12,6 +12,7 @@ namespace NPCs.Muller
 
         private int damagedCount = 0;
         private static readonly int Fell = Animator.StringToHash("Fell");
+        private const float FallingAnimationPositionOffset = 0.747f;
 
         private void Start()
         {
@@ -26,11 +27,18 @@ namespace NPCs.Muller
 
         private void OnTriggerEnter2D(Collider2D col)
         {
-            Debug.Log("Hurted");
             if (col.gameObject.CompareTag("DamagingItem"))
             {
                 Destroy(col.gameObject);
-                animator.SetBool(damagedCount++ == 0 ? Hurted : Fell, true);
+                if (damagedCount++ == 0)
+                    animator.SetBool(Hurted, true);
+                else
+                {
+                    var pos = transform.position;
+                    pos.x -= FallingAnimationPositionOffset;
+                    transform.position = pos;
+                    animator.SetBool(Fell, true);
+                }
             }
         }
     }
