@@ -10,7 +10,7 @@ public class PapersViewer : MonoBehaviour
 {
     [SerializeField] private Image currentPaper;
     [SerializeField] private int currentIndex;
-    
+
     private static int attemptsCount;
     
     [SerializeField] private List<Sprite> papers;
@@ -58,6 +58,9 @@ public class PapersViewer : MonoBehaviour
         papers.RemoveAt(currentIndex);
         papersID.RemoveAt(currentIndex);
         rightDocumentTaken?.Invoke();
+        GameObject.FindGameObjectWithTag("Storyteller").GetComponent<Storyteller>().ShowMessagesSequence(
+            "В дверь не постучали. Но Штирлиц отчетливо услышал шаги с улицы.".ToUpper(),
+            "Гости - подумал Штирлиц.".ToUpper());
         UpdatePaper();
     }
     

@@ -1,3 +1,4 @@
+using System;
 using Items.Inventory;
 using Model;
 using NPCs.Storyteller;
@@ -12,16 +13,16 @@ namespace Scenes.House.LoadScripts
 
         [SerializeField] private UnityEvent<string> firstLoad;
         [SerializeField] private UnityEvent firstLoadClose;
-        
+
         void Start()
         {
             if (loadCount++ == 0)
             {
                 var storyteller = GameObject.FindGameObjectWithTag("Storyteller").GetComponent<Storyteller>();
-                storyteller.ShowMessage(("Штирлиц прибыл в Берлин со спецзаданием: " +
-                                         "сорвать переговоры Третьего Рейха с союзниками. " +
-                                         "Штирлиц направился в офис Мюллера с целью выкрасть " +
-                                         "ценные документы, дабы саботировать переговоры.").ToUpper());
+                storyteller.ShowMessagesSequence(
+                    "Мюллер скоро должен заехать за кое-каким документом в штаб.".ToUpper(),
+                    "Штирлиц попал в штаб, но пока не знает о каком документе идет речь.".ToUpper(),
+                    "Было бы неплохо посмотреть телефонную почту - подумал Штирлиц.".ToUpper());
             }
             
             gameObject.transform.position = Core.HouseState.PlayerPosition;

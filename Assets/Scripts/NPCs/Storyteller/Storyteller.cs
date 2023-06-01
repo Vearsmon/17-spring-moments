@@ -1,9 +1,12 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Model;
 using Scene;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace NPCs.Storyteller
 {
@@ -14,6 +17,13 @@ namespace NPCs.Storyteller
 
         private EscapeManager escapeManager;
 
+        private readonly Stack<string> messagesToShow = new();
+
+        public void HideStoryTeller()
+        {
+            background.SetActive(false);
+        }
+        
         public void ShowMessage(string message)
         {
             background.SetActive(true);
@@ -21,11 +31,26 @@ namespace NPCs.Storyteller
             escapeManager.AddCloseTask(HideStoryTeller);
         }
 
-        public void HideStoryTeller()
+        public void ShowMessagesSequence(params string[] messages)
         {
-            background.SetActive(false);
+            if (messages.Length == 0)
+                return;
+
+            foreach (var message in messages.Reverse())
+                messagesToShow.Push(message);
+            
+            escapeManager.onClose.AddListener(ShowNextMessage);
+            ShowMessage(messagesToShow.Pop());
         }
-        
+
+        private void ShowNextMessage()
+        {
+            if (messagesToShow.TryPop(out var message))
+                ShowMessage(message);
+            else
+                escapeManager.onClose.RemoveListener(ShowNextMessage);
+        }
+
         private void Start()
         {
             text ??= GetComponentInChildren<TextMeshProUGUI>();
