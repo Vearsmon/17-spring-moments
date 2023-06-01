@@ -6,7 +6,7 @@ namespace Model
 {
     public class House
     {
-        public Vector3 PlayerPosition { get; set; }
+        public Vector PlayerPosition { get; set; }
 
         public int CurrentFloor { get; set; } = 1;
 

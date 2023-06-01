@@ -10,8 +10,5 @@ namespace Items.Items
 
         public string Name => name;
         [SerializeField] private string name;
-        
-        public Sprite Icon => icon;
-        [SerializeField] private Sprite icon;
     }
 }

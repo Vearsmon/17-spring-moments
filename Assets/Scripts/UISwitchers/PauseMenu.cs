@@ -42,7 +42,7 @@ public class PauseMenu : MonoBehaviour
         Debug.Log($"{Core.CurrentScene}State");
         var value = typeof(Core).GetProperty($"{Core.CurrentScene}State")!.GetValue(null);
         value!.GetType().GetProperty("PlayerPosition")!
-            .SetValue(value, GameObject.FindGameObjectWithTag("Player").transform.position);
+            .SetValue(value, new Vector(GameObject.FindGameObjectWithTag("Player").transform.position));
         
         if (!Core.TrySave())
             Debug.Log("Unable to save progress");

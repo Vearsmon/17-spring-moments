@@ -15,7 +15,6 @@ namespace Items.Inventory
             for (var i = 0; i < size; i++)
             {
                 icons[i].color = Color.white;
-                icons[i].sprite = inventory[i].Icon;
             }
             for (var i = size; i < icons.Count; i++)
                 icons[i].color = Color.clear;

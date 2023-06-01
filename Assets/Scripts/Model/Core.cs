@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using Newtonsoft.Json;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 // Для того чтобы record работал корректно
@@ -11,6 +12,25 @@ namespace System.Runtime.CompilerServices
 
 namespace Model
 {
+    public struct Vector
+    {
+        public float x;
+        public float y;
+        public float z;
+
+        public Vector(Vector3 vector3)
+        {
+            x = vector3.x;
+            y = vector3.y;
+            z = vector3.z;
+        }
+        
+        public Vector3 ToVector3()
+        {
+            return new Vector3(x, y, z);
+        }
+    }
+    
     public static class Core
     {
         public static string CurrentScene;
@@ -41,8 +61,7 @@ namespace Model
             }
             catch (Exception e)
             {
-                Console.WriteLine("Unable to save");
-                Console.WriteLine(e.Message);
+                Debug.Log(e.Message);
                 return false;
             }
 

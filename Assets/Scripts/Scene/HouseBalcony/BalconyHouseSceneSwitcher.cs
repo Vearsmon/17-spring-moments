@@ -23,7 +23,7 @@ namespace Scene
             
             audio.PlayOneShot(doorSound);
             Core.PlayerState.items = playerGameObject.GetComponent<Inventory>().Items;
-            Core.BalconyState.PlayerPosition = playerGameObject.transform.position;
+            Core.BalconyState.Vector = new Vector(playerGameObject.transform.position);
             SceneTransition.SwitchToScene("House");
         }
 

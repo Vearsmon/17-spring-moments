@@ -10,7 +10,7 @@ namespace Scene
         public void Change(GameObject obj)
         {
             Core.PlayerState.items = obj.GetComponent<Inventory>().Items;
-            Core.HouseState.PlayerPosition = obj.transform.position;
+            Core.HouseState.PlayerPosition = new Vector(obj.transform.position);
             SceneTransition.SwitchToScene("PuzzleScene");
         }
     }

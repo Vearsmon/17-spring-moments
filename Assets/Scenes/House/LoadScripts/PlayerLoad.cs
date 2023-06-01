@@ -24,8 +24,8 @@ namespace Scenes.House.LoadScripts
                     "Штирлиц попал в штаб, но пока не знает о каком документе идет речь.".ToUpper(),
                     "Было бы неплохо посмотреть телефонную почту - подумал Штирлиц.".ToUpper());
             }
-            
-            gameObject.transform.position = Core.HouseState.PlayerPosition;
+
+            gameObject.transform.position = Core.HouseState.PlayerPosition.ToVector3();
             gameObject.GetComponent<Inventory>().Items = Core.PlayerState.items;
         }
     }

@@ -22,7 +22,7 @@ namespace Scene
                 return;
             
             Core.PlayerState.items = playerGameObject.GetComponent<Inventory>().Items;
-            Core.HouseState.PlayerPosition = playerGameObject.transform.position;
+            Core.HouseState.PlayerPosition = new Vector(transform.position);
             SceneTransition.SwitchToScene("Balcony");
         }
 
