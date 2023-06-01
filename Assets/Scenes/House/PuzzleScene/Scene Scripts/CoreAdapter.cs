@@ -1,9 +1,7 @@
 using System;
-using System.Threading;
 using Model;
 using UnityEngine;
 using UnityEngine.Events;
-using System.Threading.Tasks;
 using NPCs.Storyteller;
 using Scene.HousePuzzle;
 

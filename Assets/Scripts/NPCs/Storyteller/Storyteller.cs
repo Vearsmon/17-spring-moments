@@ -14,8 +14,7 @@ namespace NPCs.Storyteller
     {
         [SerializeField] private TextMeshProUGUI text;
         [SerializeField] private GameObject background;
-
-        private EscapeManager escapeManager;
+        [SerializeField] private EscapeManager escapeManager;
 
         private readonly Stack<string> messagesToShow = new();
 

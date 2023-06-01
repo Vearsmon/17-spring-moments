@@ -16,7 +16,7 @@ namespace Scene
         public AudioSource audio;
         public AudioClip doorSound;
 
-        private void FixedUpdate()
+        private void Update()
         {
             if (!Input.GetKeyDown(KeyCode.E) || playerGameObject == null)
                 return;

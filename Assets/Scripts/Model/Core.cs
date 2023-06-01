@@ -55,7 +55,7 @@ namespace Model
                 var serialized = JsonConvert.SerializeObject(
                     new CoreData(CurrentScene, HouseState, BalconyState, PlayerState));
                 
-                var sw = new StreamWriter("save", true);
+                var sw = new StreamWriter("save", false);
                 sw.Write(serialized);
                 sw.Close();
             }
@@ -77,12 +77,10 @@ namespace Model
                 sw.Close();
 
                 var coreData = JsonConvert.DeserializeObject<CoreData>(serialized);
-                CurrentScene = coreData.currentScene;
+                CurrentScene = coreData!.currentScene;
                 HouseState = coreData!.House;
                 BalconyState = coreData!.Balcony;
                 PlayerState = coreData!.PlayerState;
-
-                SceneManager.LoadScene(CurrentScene);
             }
             catch (Exception e)
             {
