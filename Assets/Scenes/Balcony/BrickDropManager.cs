@@ -65,9 +65,7 @@ namespace Scenes.Balcony
             stierlitzAnimator.Play("Throw");
             storyteller.ShowMessage("\"Вот-те два\" — ответил Штирлиц.".ToUpper());
             escapeManager.onClose.RemoveListener(PlaySecondAnimationStep);
+            SceneTransition.SwitchToScene("Outro");
         }
-        
-        
-        
     }
 }

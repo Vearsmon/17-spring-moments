@@ -35,6 +35,11 @@ public class PauseMenu : MonoBehaviour
         SceneTransition.SwitchToScene("Menu");
     }
 
+    public void SaveGame()
+    {
+        Core.TrySave();
+    }
+
     public void LoadSettings()
     {
         settingsMenu.SetActive(true);

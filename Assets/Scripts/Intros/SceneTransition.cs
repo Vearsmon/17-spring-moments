@@ -56,6 +56,7 @@ public class SceneTransition : MonoBehaviour
 
     public void OnClosingAnimationOver()
     {
+        instance.transform.SetAsLastSibling();
         // Чтобы при открытии сцены, куда мы переключаемся, проигралась анимация opening:
         shouldPlayOpeningAnimation = true;
         loadingSceneOperation.allowSceneActivation = true;
