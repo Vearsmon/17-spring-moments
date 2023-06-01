@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using Newtonsoft.Json;
+using UnityEngine.SceneManagement;
 
 // Для того чтобы record работал корректно
 namespace System.Runtime.CompilerServices
@@ -12,6 +13,8 @@ namespace Model
 {
     public static class Core
     {
+        public static string CurrentScene;
+        
         public static House HouseState { get; private set; } = new();
         public static Balcony BalconyState { get; private set; }= new();
 
@@ -21,7 +24,8 @@ namespace Model
         {
             try
             {
-                var serialized = JsonConvert.SerializeObject(new CoreData(HouseState, BalconyState, PlayerState));
+                var serialized = JsonConvert.SerializeObject(
+                    new CoreData(CurrentScene, HouseState, BalconyState, PlayerState));
                 
                 var sw = new StreamWriter("save", true);
                 sw.Write(serialized);
@@ -46,9 +50,12 @@ namespace Model
                 sw.Close();
 
                 var coreData = JsonConvert.DeserializeObject<CoreData>(serialized);
+                CurrentScene = coreData.currentScene;
                 HouseState = coreData!.House;
                 BalconyState = coreData!.Balcony;
                 PlayerState = coreData!.PlayerState;
+
+                SceneManager.LoadScene(CurrentScene);
             }
             catch (Exception e)
             {
@@ -60,6 +67,6 @@ namespace Model
             return true;
         }
         
-        private record CoreData(House House, Balcony Balcony, PlayerState PlayerState);
+        private record CoreData(string currentScene, House House, Balcony Balcony, PlayerState PlayerState);
     }
 }
