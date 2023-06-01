@@ -4,19 +4,30 @@ using Model;
 using UnityEngine;
 using UnityEngine.Events;
 using System.Threading.Tasks;
+using NPCs.Storyteller;
+using Scene.HousePuzzle;
 
 namespace Scenes.House.PuzzleScene.Scene_Scripts
 {
     public class CoreAdapter : MonoBehaviour
     {
-        public UnityEvent OnSolved;
+        public UnityEvent onFirstLoad;
+        public UnityEvent onSolved;
 
         private Button[] buttons;
         private DateTime startReleasing = DateTime.MaxValue;
-        private static readonly TimeSpan duration = new (0, 0, 0, 0, 300);
+        private static readonly TimeSpan Duration = new (0, 0, 0, 0, 300);
+
+        private static int loadCount = 0;
 
         private void Start()
         {
+            if (loadCount++ == 0)
+                onFirstLoad.Invoke();
+            
+            GameObject.FindGameObjectWithTag("EscapeManager").GetComponent<EscapeManager>().ifToCloseStackEmpty
+                .Add(FindObjectOfType<PuzzleHouseSceneChanger>().Exit);
+
             buttons = FindObjectsByType<Button>(FindObjectsSortMode.None);
             if (Core.HouseState.TablePuzzle.Solved)
                 BlockButtons();
@@ -24,7 +35,7 @@ namespace Scenes.House.PuzzleScene.Scene_Scripts
 
         private void FixedUpdate()
         {
-            if (DateTime.Now - startReleasing >= duration)
+            if (DateTime.Now - startReleasing >= Duration)
             {
                 ReleaseButtons();
                 startReleasing = DateTime.MaxValue;
@@ -37,7 +48,11 @@ namespace Scenes.House.PuzzleScene.Scene_Scripts
             if (Core.HouseState.TablePuzzle.Solved)
             {                
                 BlockButtons();
-                OnSolved?.Invoke();
+                GameObject.FindGameObjectWithTag("Storyteller").GetComponent<Storyteller>().ShowMessagesSequence(
+                    "из трубки донесся записанный ранее томный голос Бормана.".ToUpper(),
+                    "балбес - подумал Штирлиц".ToUpper(),
+                    "Мюллер, не забудьте взять документ под номером 34! - говорил томный голос Бормана".ToUpper());
+                onSolved?.Invoke();
             }
             else if (Core.HouseState.TablePuzzle.InStartState)
             {

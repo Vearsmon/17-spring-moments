@@ -7,14 +7,20 @@ namespace Scene.HousePuzzle
     {
         public AudioClip exitTableSceneSound;
         public AudioSource audio;
-        void Update()
+        // void Update()
+        // {
+        //     if (Input.GetKeyDown(KeyCode.Escape))
+        //     {
+        //         SceneTransition.SwitchToScene("House");
+        //         audio.PlayOneShot(exitTableSceneSound);
+        //     }
+        //         
+        // }
+
+        public void Exit()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                SceneTransition.SwitchToScene("House");
-                audio.PlayOneShot(exitTableSceneSound);
-            }
-                
+            SceneTransition.SwitchToScene("House");
+            audio.PlayOneShot(exitTableSceneSound);
         }
     }
 }
