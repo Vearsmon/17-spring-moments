@@ -11,7 +11,13 @@ namespace NPCs.Muller
         private void Start()
         {
             if (Core.HouseState.Document)
+            {
                 Destroy(gameObject);
+                return;
+            }
+            
+            GameObject.FindGameObjectWithTag("Storyteller").GetComponent<Storyteller.Storyteller>().ShowMessage(
+                "Штирлиц еще никогда не был так близок к провалу.".ToUpper());
 
             if (Core.BalconyState.MullerAppeared)
                 gameObject.transform.position = appearedPosition.transform.position;
